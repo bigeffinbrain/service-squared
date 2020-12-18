@@ -1,11 +1,29 @@
-/* attached to Event Cards */
-.cards{
+/* attached to eventCard */
+/* Home Page Volunteer Grids */
+.events-elements-grid{
+    background-color:#284B63;
+    color:#EEF0EB;
+    border: 1px solid #EEF0EB;
+    cursor: pointer;
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: 100px 100px 100px;
+  }
+#cards{
+    text-align:center;
     border-style: solid;
-    border: 2px;
     border:1px solid #EEF0EB;
     border-color:#284B63;
-    border-radius: 5px;
     padding: 5px 10px;
     justify-content: space-around;
     width: 30%;
+}
+#cards button{ 
+    width: 100px;
+    cursor: pointer;
+    padding: 5px 5px;
+    border-radius: 5px;
+    border: 1px solid #284B63;
+    background-color: #EEF0EB;
+    color:#284B63;
 }
