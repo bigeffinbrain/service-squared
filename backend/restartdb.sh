@@ -1,0 +1,6 @@
+npx knex migrate:rollback
+npx knex migrate:latest
+
+npx knex seed:run
+
+psql service_squared
