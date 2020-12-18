@@ -1,38 +1,41 @@
-/* attached to Main Page */
 .App {
-  text-align: center;
-  display:center;
   margin: 0;
   font-family: 'Arial';
   background-color: #F4F9E9;
-  overflow: hidden;
 }
 /* Color:https://coolors.co/b4b8ab-153243-284b63-f4f9e9-eef0eb */
 /* Main Header */
 .main-header {
-  background-color: #153243;
-  color:#EEF0EB;
+  overflow: hidden;
   justify-content: center;
-  display:block;
+  display:inline-block;
+  width: 100%;
+  background-color: #153243;
 }
-#home-button {
+#home-button{
+  color:#EEF0EB;
   float:left;
   font-size: 15px;
   cursor: pointer;
   padding: 10px 10px;
-  height: 20px;
+  border-radius: 5px;
   border: 1px solid #153243;
   background-color: #153243;
-  color:#EEF0EB;
+}
+.#home-button button:hover {
+  /* not working don't know why*/
+  background-color: #b4b8ab;
+  border: 1px solid #b4b8ab;
 }
 #main-title{
+  color:#EEF0EB;
   text-align:center;
 }
 
 /* Create Event Area */
 .create-event-area{
   margin: 10px;
-  justify-content: center;
+  text-align:center;
 }
 #create-event-button{
   background: #284B63;
@@ -44,16 +47,8 @@
   padding: 5px 10px;
   width: 50%;
 }
-/* Home Page Volunteer Grids */
-.events-elements-grid{
-  background-color:#284B63;
-  color:#EEF0EB;
-  border: 1px solid #EEF0EB;
-  cursor: pointer;
-  border-radius: 5px;
-  padding: 5px 10px;
-  display: flex;
-  justify-content: space-around;
-  display: grid;
-  grid-template-columns: 100px 100px 100px;
+#create-event-button:hover {
+  background-color: #b4b8ab;
 }
+
+/* for home page cards see cards.css */
