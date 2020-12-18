@@ -1,0 +1,11 @@
+/* attached to Event Cards */
+.cards{
+    border-style: solid;
+    border: 2px;
+    border:1px solid #EEF0EB;
+    border-color:#284B63;
+    border-radius: 5px;
+    padding: 5px 10px;
+    justify-content: space-around;
+    width: 30%;
+}
