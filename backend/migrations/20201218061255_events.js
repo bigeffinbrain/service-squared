@@ -8,6 +8,7 @@ exports.up = function(knex) {
         table.time('start_time')
         table.date('end_date')
         table.time('end_time')
+        table.integer('creatorId')
         table.timestamp('created_at').defaultTo(knex.fn.now())
     })
     )
