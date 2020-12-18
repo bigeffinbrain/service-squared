@@ -2,8 +2,8 @@
 exports.up = function(knex) {
     return (knex.schema.createTable('people', (table) => {
         table.increments('id')
-        table.string('fName')
-        table.string('lName')
+        table.string('first_name')
+        table.string('last_name')
         table.string('email')
         table.timestamp('created_at').defaultTo(knex.fn.now())
     })
