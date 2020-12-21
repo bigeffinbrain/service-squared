@@ -62,9 +62,7 @@ class App extends Component {
             </Route>
 
             <Route path="/create-event">
-              <h1>
                 <CreateEvent allCards={this.state.events}/>
-              </h1>
             </Route>
           </Switch>
         </Router>

@@ -12,19 +12,25 @@ describe('The CreateEvents component', () => {
         expect(appWrapper.exists()).toBeTruthy();
     })
 
-    it('Displays a Form to the user', () =>{
+    it('Displays a Form to the user with correct fields', () =>{
         //SEAT
 
         //setup complete
 
         //exercise
-        let form = appWrapper.find('form')
-        let fields = appWrapper.find('.inputField')
-        let submitButton = appWrapper.find('#submitEvent')
+        let form = appWrapper.find('#event-form')
+        let nameInput=appWrapper.find('#name-input')
+        let descInput=appWrapper.find('#desc-input')
+        let startInput=appWrapper.find('#start-input')
+        let endInput=appWrapper.find('#end-input')
+        let submitButton = appWrapper.find('#submit-event')
 
-        expect(form.exists()).toBeTruthy();
-        expect(fields).toHaveLength(4)
-        expect(submitButton.exists()).toBeTruthy()
-
+        //assert
+        expect(form).toHaveLength(1);
+        expect(nameInput).toHaveLength(1)
+        expect(descInput).toHaveLength(1)
+        expect(startInput).toHaveLength(1)
+        expect(endInput).toHaveLength(1)
+        expect(submitButton).toHaveLength(1)
     })
 })
