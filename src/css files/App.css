@@ -22,8 +22,7 @@
   border: 1px solid #153243;
   background-color: #153243;
 }
-.#home-button button:hover {
-  /* not working don't know why*/
+.#home-button :hover {
   background-color: #b4b8ab;
   border: 1px solid #b4b8ab;
 }

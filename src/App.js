@@ -21,8 +21,22 @@ class App extends Component {
     super()
     this.state = {
       events: [
-        {id: 1, name: 'Puppy Wrangling', description: 'We got a lot of pups that need wrangled', start: '2020-12-25 06:30:00', end: '2020-12-25 13:00:00', creatnameor_id: 1}
+        {id: 1, name: 'Puppy Wrangling', description: 'We got a lot of pups that need wrangled', start: '2020-12-25 06:30:00', end: '2020-12-25 13:00:00', creatnameor_id: 1},
+        {id: 2, name: 'Dog Wrangling', description: 'We got a lot of pups that need wrangled', start: '2020-12-25 06:30:00', end: '2020-12-25 13:00:00', creatnameor_id: 1},
+        {id: 3, name: 'Cat Wrangling', description: 'We got a lot of pups that need wrangled', start: '2020-12-25 06:30:00', end: '2020-12-25 13:00:00', creatnameor_id: 1},
+        {id: 4, name: 'People Wrangling', description: 'We got a lot of pups that need wrangled', start: '2020-12-25 06:30:00', end: '2020-12-25 13:00:00', creatnameor_id: 1}
       ],
+
+      people: [
+        {names: 'Bob'},
+        {names: 'Jeremy'},
+        {names: 'Marley'},
+        {names: 'Ross'},
+      ],
+
+      creator: [
+        {name: 'John', email: 'John@yahoo.com'},
+      ]
     }
   }
   
@@ -47,7 +61,7 @@ class App extends Component {
             </Route>
 
             <Route exact path='/events/:eventId'>
-              <EventDetails allCards={this.state.events}/>
+              <EventDetails allCards={this.state.events} allPeople={this.state.people} creator={this.state.creator}/>
             </Route>
 
             <Route exact path="/create-event">
