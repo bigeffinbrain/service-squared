@@ -2,7 +2,7 @@ import React from 'react'
 import '../css files/cards.css'
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
-const CreateEvent = ({ allCards }) => {
+const CreateEvent = () => {
     return(
         <div class="create-event-form">
             <form id="event-form">

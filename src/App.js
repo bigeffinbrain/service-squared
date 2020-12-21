@@ -53,7 +53,7 @@ class App extends Component {
               </div>
             </Route>
 
-            <Route path='/:eventId'>
+            <Route path='/event/:eventId'>
               <EventDetails allCards={this.state.events}/>
             </Route>
 
@@ -61,7 +61,7 @@ class App extends Component {
               <h1>This is The event details page.</h1>
             </Route>
 
-            <Route path="/create-event">
+            <Route exact path="/create-event">
                 <CreateEvent />
             </Route>
           </Switch>
