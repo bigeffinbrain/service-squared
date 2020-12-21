@@ -5,13 +5,13 @@ import EventCard from '../components/eventCard'
 
 describe('App', () => {
   let appWrapper
-  beforeEach(()=>{
+  beforeEach(() => {
     appWrapper = shallow(<App />)
   })
 
   it('renders a home buttton', () => {
     const homeButton = appWrapper.exists('#home-button')
-    
+
     expect(homeButton).toEqual(true)
   })
 
@@ -21,10 +21,11 @@ describe('App', () => {
     expect(eventButton).toEqual(true)
   })
 
-  
+
   it('renders events', () => {
     const eventButton = appWrapper.exists('EventCard')
 
     expect(eventButton).toEqual(true)
   })
+
 })
