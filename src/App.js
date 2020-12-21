@@ -9,10 +9,10 @@ import {
 // import from js
 import EventCard from "./components/eventCard";
 import CreateEvent from './components/createEvent'
+import EventDetails from './components/EventDetails'
 // import from css
 import '../src/css files/App.css';
 import '../src/css files/cards.css';
-import EventDetails from './components/EventDetails'
 
 
 
@@ -31,6 +31,8 @@ class App extends Component {
     }
   }
   
+
+
   render() {
     return(
       <>
