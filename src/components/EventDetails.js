@@ -7,7 +7,7 @@ const EventDetails = ({allCards}) => {
 
     const eventInfo = event ? (
         <>
-        <div>Subject: {event.subject}</div>
+        <div>Description: {event.description}</div>
         </>
     ) : <h1>This event is no longer available</h1>
 

@@ -37,18 +37,18 @@ class App extends Component {
     return(
       <>
         <Router>
-        <header class="main-header">
+        <header className="main-header">
           <Link to='/'><button id="home-button">Home</button></Link> 
           <h1 id="main-title">Welcome to Service Squared</h1>
           <h6 id="main-title">Since: 2020</h6>
         </header>
           <Switch>
             <Route exact path="/">
-              <div class="create-event-area">
+              <div className="create-event-area">
                 <Link to='/create-event'><button id="create-event-button">Create Event</button></Link>
                   <h3>These events need your help! Check them out:</h3>
               </div>
-              <div class="events-elements-grid">
+              <div className="events-elements-grid">
                 <EventCard allCards={this.state.events}/>
               </div>
             </Route>
@@ -58,11 +58,11 @@ class App extends Component {
             </Route>
 
             <Route path="/event">
-              <h1>This is The event detials page.</h1>
+              <h1>This is The event details page.</h1>
             </Route>
 
             <Route path="/create-event">
-                <CreateEvent allCards={this.state.events}/>
+                <CreateEvent />
             </Route>
           </Switch>
         </Router>
