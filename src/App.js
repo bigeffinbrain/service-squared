@@ -61,7 +61,7 @@ class App extends Component {
               <h1>This is The event details page.</h1>
             </Route>
 
-            <Route exact path="/create-event">
+            <Route path="/create-event">
                 <CreateEvent />
             </Route>
           </Switch>
