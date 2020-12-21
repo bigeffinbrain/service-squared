@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme' 
-import App from './App'
-import EventCard from './components/eventCard'
+import App from '../App'
+import EventCard from '../components/eventCard'
 
 describe('App', () => {
   let appWrapper
