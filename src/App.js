@@ -20,12 +20,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      events: [
-        {id: 1, name: 'Puppy Wrangling', description: 'We got a lot of pups that need wrangled', start: '2020-12-25 06:30:00', end: '2020-12-25 13:00:00', creatnameor_id: 1},
-        {id: 2, name: 'Dog Wrangling', description: 'We got a lot of pups that need wrangled', start: '2020-12-25 06:30:00', end: '2020-12-25 13:00:00', creatnameor_id: 1},
-        {id: 3, name: 'Cat Wrangling', description: 'We got a lot of pups that need wrangled', start: '2020-12-25 06:30:00', end: '2020-12-25 13:00:00', creatnameor_id: 1},
-        {id: 4, name: 'People Wrangling', description: 'We got a lot of pups that need wrangled', start: '2020-12-25 06:30:00', end: '2020-12-25 13:00:00', creatnameor_id: 1}
-      ],
+      events: [],
 
       people: [
         {names: 'Bob'},
@@ -39,6 +34,16 @@ class App extends Component {
       ]
     }
   }
+
+  componentDidMount() {
+    fetch('http://127.0.0.1:3001/events', {
+      method: 'GET'
+    })
+    .then(response => response.json())
+    .then(data => this.setState({events: data}))
+    .catch(err => console.log(err))
+  }
+
   render() {
     return(
       <>
