@@ -1,22 +1,32 @@
 /* attached to eventCard */
 /* Home Page Volunteer Grids */
+#card-section{
+    grid-column-start: 2;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 10px;
+    justify-content: center;
+  }
 .events-elements-grid{
     background-color:#284B63;
     color:#EEF0EB;
     border: 1px solid #EEF0EB;
     cursor: pointer;
     display: grid;
-    justify-content: space-around;
-    grid-template-columns: 100px 100px 100px;
-  }
+    /* justify-content: space-around; */
+    grid-template-columns: 1fr 50% 1fr;
+}
 #cards{
     text-align:center;
     border-style: solid;
     border:1px solid #EEF0EB;
     border-color:#284B63;
     padding: 5px 10px;
-    justify-content: space-around;
-    width: 100%;
+    /* justify-content: space-around; */
+    width: 100px;
+    border-radius: 10px;
+    margin: 5px;
     background-color: #153243;
 }
 #cards button{ 

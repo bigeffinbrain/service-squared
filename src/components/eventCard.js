@@ -16,11 +16,11 @@ const EventCard = ({ allCards }) => {
         }) : <h2>There are no events available at this time.</h2>
 
     return(
-        <>
+        <div id='card-section'>
         {
             getCards
         }
-        </>
+        </div>
     )
 }
 
