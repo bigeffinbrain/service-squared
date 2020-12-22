@@ -4,9 +4,6 @@ const port = 3001;
 const cors = require('cors')
 const parser = require('body-parser')
 const knex = require('knex')(require('./knexfile.js')['development']);
-
-const knex = require('knex')(require('./knexfile.js')['development']);
-
 //cors policy update
 app.use(cors())
 app.use(parser.json())
