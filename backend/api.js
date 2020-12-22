@@ -5,6 +5,8 @@ const cors = require('cors')
 const parser = require('body-parser')
 const knex = require('knex')(require('./knexfile.js')['development']);
 
+const knex = require('knex')(require('./knexfile.js')['development']);
+
 //cors policy update
 app.use(cors())
 app.use(parser.json())
@@ -12,6 +14,21 @@ app.use(parser.json())
 //Root for api server connection testing
 app.get('/', (request, response) => {
   response.status(200).send('Successful')
+})
+
+//Get endpoint for all events
+app.get('/events', (request, response) => {
+
+  knex
+    .select('*')
+    .from('events')
+    .then(data => response.json(data))
+    .catch(err =>
+      response.status(404).json({
+        message:
+          'The data you are looking for could not be found. Please try again, but different.'
+      }))
+
 })
 
 // post for setting values to an event
