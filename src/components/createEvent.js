@@ -24,7 +24,7 @@ class CreateEvent extends React.Component {
     }
 
     handleSubmit(event) {
-        event.preventDefault()
+        // event.preventDefault()
         fetch('http://127.0.0.1:3001/create-event', {
             method: 'POST',
             headers: {
