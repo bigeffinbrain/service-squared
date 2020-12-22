@@ -3,6 +3,7 @@ const app = express()
 const port = 3001;
 const cors = require('cors')
 const parser = require('body-parser')
+const knex = require('knex')(require('./knexfile.js')['development']);
 
 //cors policy update
 app.use(cors())
@@ -17,7 +18,21 @@ app.get('/', (request, response) => {
 app.post('/create-event', (request, response) => {
   let reqbody = request.body
   console.log(reqbody)
-  response.status(200)
+  if (reqbody.name && reqbody.description && reqbody.startDate && reqbody.endDate){
+    knex('events')
+    .insert({
+      name: reqbody.name,
+      description: reqbody.description,
+      start: reqbody.startDate,
+      end: reqbody.endDate,
+      creator_id: null,
+    }).returning('*')
+    .then(data => response.status(200).json(data))
+    .catch(err => response.status(400).json({message: `There was an error ${err}`}))
+  }
 })
+
+
+
 
 app.listen(port, () => console.log(`Server up and running @ Localhost:${port}`))
