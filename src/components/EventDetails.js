@@ -100,7 +100,6 @@ class EventDetails extends React.Component {
 
         return (
             <>
-                <h1 className='event-details-header'>Event Details</h1>
                 {
                     eventInfo
                 }
