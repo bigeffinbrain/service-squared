@@ -27,7 +27,6 @@ class EventDetails extends React.Component {
     }
 
     handleSubmit(event) {
-        event.preventDefault()
 
         const eventId = this.props.match.params.eventId
         const first_name = document.getElementById('first-name').value
