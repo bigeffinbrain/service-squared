@@ -51,7 +51,7 @@ class CreateEvent extends React.Component {
                         <div></div>
                         END<input id="end-input" name="endDate" class="inputField" type="date" onChange={this.handleChange}/>
                     </div>
-                    <input id="desc-input" name="description" class="inputField" type="text" placeholder="Description" onChange={this.handleChange}/>
+                    <textarea id="desc-input" name="description" class="inputField" type="textarea" placeholder="Description" onChange={this.handleChange}/>
                     
                     <button id="submit-event" type="submit">Submit</button>
                 </form>
