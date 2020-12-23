@@ -74,6 +74,22 @@ app.post('/create-event', (request, response) => {
   }
 })
 
+// post for setting a volunteer 
+app.post('/sign-up', (request, response) => {
+  let reqbody = request.body
+  console.log(reqbody)
+  if (reqbody.first_name && reqbody.last_name && reqbody.email){
+    knex('attendees')
+    .insert({
+      firstName: reqbody.first_name,
+      lastName: reqbody.last_name,
+      email: reqbody.email,
+    }).returning('*')
+    .then(data => response.status(200).json(data))
+    .catch(err => response.status(400).json({message: `There was an error ${err}`}))
+  }
+})
+
 
 
 
