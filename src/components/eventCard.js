@@ -9,7 +9,9 @@ const EventCard = ({ allCards }) => {
         allCards.map(items => {
             return(
                 <div id='cards'>
-                    <h5>{items.name}</h5>
+                    <div id='card-name'>
+                        <h1>{items.name}</h1>
+                    </div>
                     <Link to={`events/${items.id}`}><button>Join Event</button> </Link>
                 </div>
             )

@@ -1,7 +1,10 @@
+
 import React, { Component } from 'react';
+import Moment from 'moment';
 import { useParams } from 'react-router-dom';
 import '../css files/EventDetails.css'
 import { withRouter } from "react-router";
+
 
 
 class EventDetails extends React.Component {
@@ -104,6 +107,7 @@ class EventDetails extends React.Component {
             </>
         )
     }
+
 }
 
 export default withRouter(EventDetails);

@@ -7,34 +7,63 @@
     flex-direction: row;
     padding: 10px;
     justify-content: center;
+    align-content: flex-start;
   }
+
 .events-elements-grid{
+    grid-column-start: 2;
+    grid-auto-rows: minmax(min-content, max-content);
+    height: 100%;
+    /* justify-content: flex-start; */
+    width: 600px;
     background-color:#284B63;
     color:#EEF0EB;
     border: 1px solid #EEF0EB;
     cursor: pointer;
     display: grid;
     /* justify-content: space-around; */
-    grid-template-columns: 1fr 50% 1fr;
+    grid-template-columns: 1fr 550px 1fr;
+    border-radius: 15px 15px 0px 0px;
+
 }
+.events-elements-grid h1{
+    grid-column-start: 2;
+    font-size: 20px;
+    /* display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 10px;*/
+    text-align: center; 
+    margin-top: 30px;
+  }
 #cards{
-    text-align:center;
+    text-align: center;
+    display: grid;
+    grid-template-rows: 75px 50px;
+    font-size: larger;
     border-style: solid;
     border:1px solid #EEF0EB;
     border-color:#284B63;
-    padding: 5px 10px;
-    /* justify-content: space-around; */
+    padding: 0px 10px;
     width: 100px;
     border-radius: 10px;
     margin: 5px;
     background-color: #153243;
+    align-items: center;
+}
+
+#cards h1{
+    font-size: smaller;
+    margin-top: 5px;
+    margin-bottom: 0px;
 }
 #cards button{ 
     width: 100px;
     cursor: pointer;
-    padding: 5px 5px;
+    padding: 5px 5px; 
     border-radius: 5px;
     border: 1px solid #284B63;
     background-color: #EEF0EB;
     color:#284B63;
+    grid-row-start: 2;
 }
