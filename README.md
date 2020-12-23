@@ -7,11 +7,8 @@
 ![](https://img.shields.io/github/issues/bigeffinbrain/service-squared)
 
 
-**Table of Contents**
-
-
                     
-###API Endpoints
+##API Endpoints
                     
 Endpoint  | Contents
 ------------- | -------------
@@ -50,7 +47,7 @@ npm run
 
 
 
-###Database Schema
+## Database Schema
                     
 <a href="https://ibb.co/HCkqmkN"><img src="https://i.ibb.co/zF0ZK08/MVP-database-schema-v2.png" alt="MVP-database-schema-v2" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'></a><br />
 
