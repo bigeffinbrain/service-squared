@@ -18,23 +18,26 @@
     grid-template-columns: 1fr 50% 1fr;
 }
 #cards{
-    text-align:center;
+    text-align: center;
+    display: grid;
+    grid-template-rows: 1fr 50px;
     border-style: solid;
     border:1px solid #EEF0EB;
     border-color:#284B63;
     padding: 5px 10px;
-    /* justify-content: space-around; */
     width: 100px;
     border-radius: 10px;
     margin: 5px;
     background-color: #153243;
+    align-items: center;
 }
 #cards button{ 
     width: 100px;
     cursor: pointer;
-    padding: 5px 5px;
+    padding: 5px 5px; 
     border-radius: 5px;
     border: 1px solid #284B63;
     background-color: #EEF0EB;
     color:#284B63;
+    grid-row-start: 2;
 }
