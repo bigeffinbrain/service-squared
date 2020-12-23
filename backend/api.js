@@ -13,6 +13,34 @@ app.get('/', (request, response) => {
   response.status(200).send('Successful')
 })
 
+//GET endpoint for people assocaited with an event.
+app.get('/people/:eventID', (request, response) => {
+  let namesArray=[]
+  knex('attendees')
+    .where({event_id: request.params.eventID})
+    .select('person_id')
+  .then(data =>{
+    console.log(data)
+    let dataObj=data;
+    knex('people')
+      .select('first_name','last_name','id')
+    .then(data =>{
+      data.forEach(element => {
+        dataObj.forEach(namePairs => {
+          if(namePairs.person_id == element.id){
+            namesArray.push({firstName:element.first_name,lastName:element.last_name})
+          }
+        });      
+      });   
+    })
+    .then(() => {
+      response.status(200).json(namesArray)
+    }).catch(err => {
+      response.status(400).json({message:`There was an error: ${err}`})
+    })
+  })
+})
+
 //Get endpoint for all events
 app.get('/events', (request, response) => {
 
