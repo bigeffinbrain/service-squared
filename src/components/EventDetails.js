@@ -1,4 +1,5 @@
 import React from 'react';
+import Moment from 'moment';
 import { useParams } from 'react-router-dom';
 import '../css files/EventDetails.css'
 
@@ -10,12 +11,12 @@ const EventDetails = ({allCards, allPeople, creator}) => {
     const eventInfo = event ? (
         <>
         <div className = 'ifEventExist'>
-        <h3 id='event-name'>{event.name}</h3>
-        <div id='event-description'><b>Description:</b> {event.description}</div>
-        <div id='event-start'><b>Start:</b> {event.start}</div>
-        <div id='event-end'><b>End:</b> {event.end}</div>
-        <div id='event-creator'><b>Event Creator: </b>{creator[0].name}</div>    
-        <div id='event-creatorContact'><b>Event Creator Contact: </b>{creator[0].email}</div>      
+            <h3 id='event-name'>{event.name}</h3>
+            <div id='event-start'><b>Start:</b> {Moment(event.start).format('h:mm - d MMM YYYY')}</div>
+            <div id='event-end'><b>End:</b> {Moment(event.end).format('h:mm - d MMM YYYY')}</div>
+            <div id='event-description'><b>Description:</b> {event.description}</div>
+            <div id='event-creator'><b>Event Creator: </b>{creator[0].name}</div>    
+            <div id='event-creatorContact'><b>Event Creator Contact: </b>{creator[0].email}</div>      
         </div> {/* for css: end div for class 'ifEventExist'  */}
         <div className = 'formatting'> 
         {/* 'formatting' class is for css only */}
@@ -52,7 +53,6 @@ const EventDetails = ({allCards, allPeople, creator}) => {
 
     return (
         <>
-        <h1 className='event-details-header'>Event Details</h1>
             {
                 eventInfo        
             }

@@ -8,46 +8,146 @@
 .main-header {
   overflow: hidden;
   justify-content: center;
-  display:inline-block;
+  clear: left;
+  display: grid;
+  grid-template-columns: 1fr 50px 550px 50px 1fr;
+  /* display:inline-block; */
   width: 100%;
   background-color: #153243;
 }
+
+.main-header h1{
+  font-size: 80px;
+  color:#EEF0EB;
+  text-align:center;
+  margin: 10px;
+  grid-column-start: 3;
+
+}
+.main-header h2{
+  font-size: 20px;
+  color:#EEF0EB;
+  text-align:center;
+  margin: 10px;
+  grid-column-start: 3;
+
+
+}
+
 #home-button{
   color:#EEF0EB;
-  float:left;
   font-size: 15px;
   cursor: pointer;
   padding: 10px 10px;
+  margin: 10px;
   border-radius: 5px;
   border: 1px solid #153243;
-  background-color: #153243;
+  background-color: #284B63;
 }
-.#home-button :hover {
+#home-button :hover {
   background-color: #b4b8ab;
   border: 1px solid #b4b8ab;
 }
-#main-title{
-  color:#EEF0EB;
-  text-align:center;
+
+#home-floater {
+  grid-column-start: 2;
+
+}
+
+html, body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 600px 1fr;
+  height: 100%;
+  grid-template-rows: auto 1fr;
 }
 
 /* Create Event Area */
 .create-event-area{
+  grid-column-start: 2;
   margin: 10px;
   text-align:center;
+  height: 80px;
 }
 #create-event-button{
-  background: #284B63;
-  color:#EEF0EB;
-  font-size: 18px;
+  background: #F4F9E9;
+  color:#153243;
+  font-size: 25px;
+  font-weight: bold;
   cursor: pointer;
-  border: 1px solid #EEF0EB;
+  border: 1px solid #153243;
+  box-shadow: 3px 3px 5px;
   border-radius: 5px;
   padding: 5px 10px;
-  width: 50%;
+  width: 520px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 #create-event-button:hover {
   background-color: #b4b8ab;
 }
 
+.create-event-form{
+  grid-column-start: 2;
+}
+
+#event-form{
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  align-items: center;
+}
+
+#name-input {
+  width: 500px;
+  padding: 5px;
+  margin: 10px;
+}
+
+#desc-input {
+  width: 500px;
+  height: 300px;
+  padding: 5px;
+  margin: 10px;
+}
+
+.date-input {
+  display: grid;
+  grid-template-columns: 50px 1fr 25px 50px 1fr;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  text-align: right;
+}
+.date-input input {
+  padding: 5px;
+  margin: 10px;
+  margin-right: 0;
+}
+
+#event-form button{
+  background: #F4F9E9;
+  color:#153243;
+  font-size: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid #153243;
+  box-shadow: 3px 3px 5px;
+  border-radius: 5px;
+  padding: 5px 10px;
+  width: 520px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 /* for home page cards see cards.css */
+
