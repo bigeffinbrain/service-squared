@@ -46,9 +46,13 @@ class CreateEvent extends React.Component {
             <div class="create-event-form">
                 <form id="event-form" onSubmit={this.handleSubmit}>
                     <input id="name-input" name="name" class="inputField" type="text" placeholder="Event Name" onChange={this.handleChange}/>
+                    <div className='date-input'>
+                        START<input id="start-input" name="startDate" class="inputField" type="date" onChange={this.handleChange}/>
+                        <div></div>
+                        END<input id="end-input" name="endDate" class="inputField" type="date" onChange={this.handleChange}/>
+                    </div>
                     <input id="desc-input" name="description" class="inputField" type="text" placeholder="Description" onChange={this.handleChange}/>
-                    <input id="start-input" name="startDate" class="inputField" type="date" onChange={this.handleChange}/>
-                    <input id="end-input" name="endDate" class="inputField" type="date" onChange={this.handleChange}/>
+                    
                     <button id="submit-event" type="submit">Submit</button>
                 </form>
             </div>

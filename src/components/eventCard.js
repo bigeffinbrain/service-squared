@@ -10,7 +10,7 @@ const EventCard = ({ allCards }) => {
             return(
                 <div id='cards'>
                     <div id='card-name'>
-                        <h5>{items.name}</h5>
+                        <h1>{items.name}</h1>
                     </div>
                     <Link to={`events/${items.id}`}><button>Join Event</button> </Link>
                 </div>

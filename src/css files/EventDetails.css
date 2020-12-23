@@ -4,13 +4,20 @@
 }
 /* event details page */
 .ifEventExist{
-    text-align:center;
-    justify-content: center;
-    display:block;
+    text-align:left;
+    /* justify-content: center; */
+    /* display:block; */
     padding: 30px;
+    grid-column-start: 2;
+}
+.ifEventExist div{
+    margin-bottom: 10px;
 }
 #event-name{
-
+    margin-top: 0;
+    color: #153243;
+    font-size: xx-large;
+    text-align: center;
 }
 #event-description{
    
@@ -24,9 +31,11 @@
 /* formatting */
 .formatting{
     display:flex;
+    grid-column-start: 2;
 }
 /* form */
 .join-event-form{
+    grid-auto-rows: minmax(min-content, max-content);
     background-color: #B4B8AB;
     margin:0px;
     padding:20px 0px;
@@ -36,6 +45,7 @@
     text-align:center;
     flex-wrap: wrap;
     width:50%;
+    border-radius: 15px 0px 0px 0px;
 }
 .join-event-form input{
     border-radius: 5px;
@@ -61,10 +71,16 @@
 /* list of people who signed up  */
 .listpeoplename{
     background-color: #284B63;
+    color: #EEF0EB;
     width:50%;
+    padding: 10px;
     display:grid;
     text-align:center;
     place-items:center;
     float:right;
     wrap: wrap;
+    grid-auto-rows: minmax(min-content, max-content);
+    border-radius: 0px 15px 0px 0px;
+
+
 }
