@@ -10,6 +10,7 @@ class EventDetails extends React.Component {
         this.state = {
             people: []
         }
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
@@ -23,13 +24,19 @@ class EventDetails extends React.Component {
     }
 
     handleSubmit(event) {
-        // event.preventDefault()
+        event.preventDefault()
+
+        const eventId = this.props.match.params.eventId
+        const first_name = document.getElementById('first-name').value
+        const last_name = document.getElementById('last-name').value
+        const email = document.getElementById('email').value
+
         fetch('http://127.0.0.1:3001/sign-up', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify(this.state),
+            body: JSON.stringify({first_name:first_name,last_name:last_name,email:email, event_id: eventId}),
           })
           .then(promise => promise.json())
           .then(data => {
@@ -47,28 +54,28 @@ class EventDetails extends React.Component {
         const event = this.props.allCards.find(e => e.id === Number(eventId))
         const eventInfo = event ? (
             <>
-                <div className='ifEventExist'>
-                    <h3 id='event-name'>{event.name}</h3>
-                    <div id='event-description'><b>Description:</b> {event.description}</div>
-                    <div id='event-start'><b>Start:</b> {event.start}</div>
-                    <div id='event-end'><b>End:</b> {event.end}</div>
-                    <div id='event-creator'><b>Event Creator: </b>{this.props.creator[0].name}</div>
-                    <div id='event-creatorContact'><b>Event Creator Contact: </b>{this.props.creator[0].email}</div>
-                </div> {/* for css: end div for class 'ifEventExist'  */}
-                <div className='formatting'>
-                    {/* 'formatting' class is for css only */}
-                    <form className='join-event-form'>
-                        <h3>Sign Up!</h3>
-            Rank/Grade:
-            <input id='rank-grade' type='text' placeholder='Enter rank/grade'></input>
-            First name:
-            <input id='first-name' name="firstName" type='text' placeholder='Enter first name'></input>
-            Last name:
-            <input id='last-name' name="lastName" type='text' placeholder='Enter last name'></input>
-            Email:
-            <input id='email' name="email" type='text' placeholder='Enter email'></input>
-                        <button id='submit-btn' type='submit'>Submit</button>
-                    </form>
+                    <div className='ifEventExist'>
+                        <h3 id='event-name'>{event.name}</h3>
+                        <div id='event-description'><b>Description:</b> {event.description}</div>
+                        <div id='event-start'><b>Start:</b> {event.start}</div>
+                        <div id='event-end'><b>End:</b> {event.end}</div>
+                        <div id='event-creator'><b>Event Creator: </b>{this.props.creator[0].name}</div>
+                        <div id='event-creatorContact'><b>Event Creator Contact: </b>{this.props.creator[0].email}</div>
+                    </div> {/* for css: end div for class 'ifEventExist'  */}
+                    <div className='formatting'>
+                        {/* 'formatting' class is for css only */}
+                <form className='join-event-form' onSubmit={this.handleSubmit}>
+                            <h3>Sign Up!</h3>
+                    Rank/Grade:
+                    <input id='rank-grade' type='text' placeholder='Enter rank/grade'></input>
+                    First name:
+                    <input id='first-name' name="firstName" type='text' placeholder='Enter first name'></input>
+                    Last name:
+                    <input id='last-name' name="lastName" type='text' placeholder='Enter last name'></input>
+                    Email:
+                    <input id='email' name="email" type='text' placeholder='Enter email'></input>
+                    <button id='submit-btn' type='submit'>Submit</button>
+                </form>
                     <div className='listpeoplename'>
                         <h3 >List of people who have already signed up:</h3>
                         {

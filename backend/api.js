@@ -59,7 +59,7 @@ app.get('/events', (request, response) => {
 // post for setting values to an event
 app.post('/create-event', (request, response) => {
   let reqbody = request.body
-  console.log(reqbody)
+  //console.log(reqbody)
   if (reqbody.name && reqbody.description && reqbody.startDate && reqbody.endDate){
     knex('events')
     .insert({
@@ -77,16 +77,55 @@ app.post('/create-event', (request, response) => {
 // post for setting a volunteer 
 app.post('/sign-up', (request, response) => {
   let reqbody = request.body
-  console.log(reqbody)
-  if (reqbody.first_name && reqbody.last_name && reqbody.email){
-    knex('attendees')
-    .insert({
-      firstName: reqbody.first_name,
-      lastName: reqbody.last_name,
-      email: reqbody.email,
-    }).returning('*')
-    .then(data => response.status(200).json(data))
-    .catch(err => response.status(400).json({message: `There was an error ${err}`}))
+  console.log(`Im on line 80${JSON.stringify(reqbody)}`)
+  if (reqbody.first_name && reqbody.last_name && reqbody.email && reqbody.event_id){
+    console.log('Im here on line 82')
+     //check if the person exists by email
+    knex('people')
+    .select('id')
+    .where({email: request.body.email})
+    .then( data => {
+      console.log(`Im on line 87 empty if no email ${JSON.stringify(data)}`)
+      if (data.length == 0){
+        console.log('This is the case that no email matach was found')
+        //if we dont find a person, create a person
+        knex('people')
+          .insert({
+            first_name: reqbody.first_name,
+            last_name: reqbody.last_name,
+            email: reqbody.email,
+          }).returning('*') //* = return whole object within .insert
+        .then(data => {
+          console.log(`im on line 99${JSON.stringify(data)}`)
+          const person_id = data[0].id
+          console.log(`this is data.id on line 101 ${data[0].id}`)
+          knex('attendees')
+            .insert({
+              person_id: person_id,
+              event_id: reqbody.event_id
+            }).returning('*')
+            .then(data => response.status(200).json(data))  
+        })
+      } else {
+        //if person exists, just add them to attendees
+        
+        console.log('We did not enter our if block')
+        const person_id = data[0].id
+        knex('attendees')
+            .insert({
+              person_id: person_id,
+              event_id: reqbody.event_id
+            }).returning('*')
+            .then(data => response.status(200).json(data)) 
+      }
+    })
+    
+    
+        
+    //   })
+    // )
+    // .then(data => response.status(200).json(data))
+    // .catch(err => response.status(400).json({message: `There was an error ${err}`}))
   }
 })
 
