@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { useParams } from 'react-router-dom';
 import '../css files/EventDetails.css'
+import { withRouter } from "react-router";
+
 
 class EventDetails extends React.Component {
     constructor(props) {
@@ -11,7 +13,7 @@ class EventDetails extends React.Component {
     }
 
     componentDidMount() {
-        const { eventId } = useParams()
+        const eventId = this.props.match.params.eventId
         fetch(`http://127.0.0.1:3001/people/${eventId}`, {
             method: 'GET'
         })
@@ -40,7 +42,7 @@ class EventDetails extends React.Component {
 
 
     render() {
-        const { eventId } = useParams()
+        const eventId = this.props.match.params.eventId
         // eventID is from router from App.js
         const event = this.props.allCards.find(e => e.id === Number(eventId))
         const eventInfo = event ? (
@@ -70,17 +72,17 @@ class EventDetails extends React.Component {
                     <div className='listpeoplename'>
                         <h3 >List of people who have already signed up:</h3>
                         {
-                            this.state.people[0].map(p => {
+                            this.state.people.map(p => {
                                 return (
-                                    <div> {p.first_name} {p.last_name}</div>
+                                    <div> {p.first_name} {p.last_name} {console.log(p)}</div>
                                 )
                             })
                         }
                     </div>
                     {/* above div is with clssNmae 'listpeoplename' */}
                 </div>
-                {/* for css: <>above is for placing sign up and peoplelist side to side */}
-            </> /* <> is with line 11 */
+                {/* for css: div above is for 'formatting' */}
+            </> /* <> is with line 49 */
 
 
         ) : <h1>This event is no longer available</h1>
@@ -97,4 +99,4 @@ class EventDetails extends React.Component {
     }
 }
 
-export default EventDetails;
+export default withRouter(EventDetails);

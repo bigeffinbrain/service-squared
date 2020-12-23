@@ -28,7 +28,7 @@ app.get('/people/:eventID', (request, response) => {
       data.forEach(element => {
         dataObj.forEach(namePairs => {
           if(namePairs.person_id == element.id){
-            namesArray.push({firstName:element.first_name,lastName:element.last_name})
+            namesArray.push({first_name:element.first_name,last_name:element.last_name})
           }
         });      
       });   
